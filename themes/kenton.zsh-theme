@@ -3,25 +3,22 @@ MY_CURRENT_RUBY="%{$fg[white]%}[%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt i v)%{$fg[w
 MY_CURRENT_GEMSET="%{$fg[white]%}(%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt g)%{$fg[white]%})%{$reset_color%}"
 
 # Grab the current filepath, use shortcuts: ~/Desktop
-# Append the current git branch, if in a git repository
 MY_CURRENT_PATH="%{$fg_bold[cyan]%}%~%{$reset_color%}"
-#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[white]%} (%{$fg[magenta]%}"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%}git%{$reset_color%}@%{$bg[white]%}%{$fg[black]%}"
+# GIT PROMPTS
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
-# Do nothing if the branch is clean (no changes).
-#ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%})"
 
-# Add a yellow ✗ if the branch is dirty
-#ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}) %{$fg[yellow]%}✗"
-
-# Put it all together!
-#PROMPT="$MY_CURRENT_GEMSET $MY_CURRENT_PATH x$(git_time_since_commit) y$(git_prompt_info)%{$fg[red]%}%!%{$reset_color%}"
 
 
 
@@ -40,19 +37,9 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 #PROMPT='%{$fg[blue]%}%m%{$reset_color%}%{$fg_bold[white]%} ओम् %{$reset_color%}%{$fg[cyan]%}%~:%{$reset_color%} $(git_time_since_commit) $(git_prompt_info)
 #%{$fg[red]%}%!%{$reset_color%} $(prompt_char) '
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%}git%{$reset_color%}@%{$bg[white]%}%{$fg[black]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%})"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 #RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}'
 
-ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
 function prompt_char() {
   git branch >/dev/null 2>/dev/null && echo "%{$fg[green]%}±%{$reset_color%}" && return
@@ -113,4 +100,4 @@ function git_time_since_commit() {
 }
 
 # Put it all together!
-PROMPT="$MY_CURRENT_GEMSET $(git_time_since_commit)$(git_prompt_info) $MY_CURRENT_PATH : "
+PROMPT="$MY_CURRENT_GEMSET $(git_time_since_commit)$(git_prompt_info) $(prompt_char)  $MY_CURRENT_PATH : "
