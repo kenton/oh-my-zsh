@@ -17,3 +17,6 @@ alias feature/persistent-promo-codes='nocorrect feature/persistent-promo-codes'
 alias feature/use-grid-for-transfer-rate-service-manager='nocorrect feature/use-grid-for-transfer-rate-service-manager'
 alias feature/rebooked-ride-reporting='nocorrect feature/rebooked-ride-reporting'
 alias gn='gn'
+
+# correct commands, but not any arguments (correct_all would do that)
+setopt correct
