@@ -25,6 +25,7 @@ There are a few aliases presented as well:
 * `vvsp` Edits the passed in file but first makes a vertical split
 * `vhsp` Edits the passed in file but first makes a horizontal split
 
+<<<<<<< HEAD
 ## Post Callout ##
 
 At the end of the `callvim` function we invoke the `postCallVim` function if it
@@ -38,6 +39,8 @@ brings window focus to it after the file is loaded:
 
 This'll be different depending on your OS / Window Manager.
 
+=======
+>>>>>>> A plugin that makes it easier to interact with the (single) running instance of gvim
 ## Examples ##
 
 This will load `/tmp/myfile.scala` into the running GVim session:

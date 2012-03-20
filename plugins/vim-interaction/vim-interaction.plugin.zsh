@@ -8,10 +8,15 @@ function resolveFile
 {
   if [ -f "$1" ]; then
     echo $(readlink -f "$1")
+<<<<<<< HEAD
   elif [[ "${1#/}" == "$1" ]]; then
     echo "$(pwd)/$1"
   else
     echo $1
+=======
+  else
+    echo "$1"
+>>>>>>> A plugin that makes it easier to interact with the (single) running instance of gvim
   fi
 }
 
@@ -30,7 +35,11 @@ EOH
   fi
 
   local cmd=""
+<<<<<<< HEAD
   local before="<esc>"
+=======
+  local before=""
+>>>>>>> A plugin that makes it easier to interact with the (single) running instance of gvim
   local after=""
   while getopts ":b:a:" option
   do
@@ -58,9 +67,12 @@ EOH
   fi
   cmd="$before$files$after"
   gvim --remote-send "$cmd"
+<<<<<<< HEAD
   if typeset -f postCallVim > /dev/null; then
     postCallVim
   fi
+=======
+>>>>>>> A plugin that makes it easier to interact with the (single) running instance of gvim
 }
 
 alias v=callvim
