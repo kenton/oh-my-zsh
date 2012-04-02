@@ -1,6 +1,27 @@
+unset MY_CURRENT_RUBY
+unset MY_CURRENT_GEMSET
+unset MY_CURRENT_PATH
+unset ZSH_THEME_GIT_PROMPT_PREFIX
+unset ZSH_THEME_GIT_PROMPT_SUFFIX
+unset ZSH_THEME_GIT_PROMPT_DIRTY
+unset ZSH_THEME_GIT_PROMPT_CLEAN
+unset ZSH_THEME_GIT_PROMPT_ADDED
+unset ZSH_THEME_GIT_PROMPT_MODIFIED
+unset ZSH_THEME_GIT_PROMPT_DELETED
+unset ZSH_THEME_GIT_PROMPT_RENAMED
+unset ZSH_THEME_GIT_PROMPT_UNMERGED
+unset ZSH_THEME_GIT_PROMPT_UNTRACKED
+unset COLOR
+unset GIT_PROMPT_CHAR
+unset GIT_PROMPT_INFO
+unset GIT_TIME_SINCE_COMMIT
+unset PROMPT
+#--------
+
+
 # Grab the current version of ruby in use (via RVM): [ruby-1.8.7]
-MY_CURRENT_RUBY="%{$fg[white]%}[%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt i v)%{$fg[white]%}]%{$reset_color%}"
-MY_CURRENT_GEMSET="%{$fg[white]%}(%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt g)%{$fg[white]%})%{$reset_color%}"
+MY_CURRENT_RUBY="%{$fg[white]%}%{$fg[red]%}\$(rvm_prompt_info)%{$fg[white]%}%{$reset_color%}"
+MY_CURRENT_GEMSET="%{$fg[white]%}%{$fg[red]%}\$(rvm_gemset_info)%{$fg[white]%}%{$reset_color%}"
 
 # Grab the current filepath, use shortcuts: ~/Desktop
 MY_CURRENT_PATH="%{$fg_bold[cyan]%}%~%{$reset_color%}"
@@ -18,6 +39,7 @@ ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 
+#MY_GIT_BRANCH="\$(git branch)"
 
 
 
@@ -31,8 +53,8 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
 #    SCREENSHOT: coming soon
 # -----------------------------------------------------------------------------
 
-#MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
-#local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
+MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
+local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
 
 #PROMPT='%{$fg[blue]%}%m%{$reset_color%}%{$fg_bold[white]%} ओम् %{$reset_color%}%{$fg[cyan]%}%~:%{$reset_color%} $(git_time_since_commit) $(git_prompt_info)
 #%{$fg[red]%}%!%{$reset_color%} $(prompt_char) '
@@ -99,5 +121,9 @@ function git_time_since_commit() {
     fi
 }
 
+GIT_PROMPT_CHAR="$(prompt_char)"
+GIT_PROMPT_INFO="$(git_prompt_info)"
+GIT_TIME_SINCE_COMMIT="$(git_time_since_commit)"
+
 # Put it all together!
-PROMPT="$MY_CURRENT_GEMSET $(git_time_since_commit)$(git_prompt_info) $(prompt_char)  $MY_CURRENT_PATH : "
+#PROMPT="[$MY_CURRENT_GEMSET]$GIT_TIME_SINCE_COMMIT $GIT_PROMPT_INFO $GIT_PROMPT_CHAR  $MY_CURRENT_PATH > "
