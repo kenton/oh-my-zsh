@@ -4,7 +4,11 @@
 local _sublime_darwin_subl=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl
 
 if [[ $('uname') == 'Linux' ]]; then
-	alias st='/usr/bin/sublime_text&'
+	if [ -f '/usr/bin/sublime_text' ]; then
+		alias st='/usr/bin/sublime_text&'
+	else
+		alias st='/usr/bin/sublime-text&'
+	fi
 elif  [[ $('uname') == 'Darwin' ]]; then
 	# Check if Sublime is installed in user's home application directory
 	if [[ -a $HOME/${_sublime_darwin_subl} ]]; then
