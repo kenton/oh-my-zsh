@@ -1,3 +1,15 @@
+# aliases
+alias mvncie='mvn clean install eclipse:eclipse'
+alias mvnci='mvn clean install'
+alias mvne='mvn eclipse:eclipse'
+alias mvnce='mvn clean eclipse:clean eclipse:eclipse'
+alias mvnd='mvn deploy'
+alias mvnp='mvn package'
+alias mvnc='mvn clean'
+alias mvncom='mvn compile'
+alias mvnt='mvn test'
+alias mvnag='mvn archetype:generate'
+
 function listMavenCompletions { 
      reply=(
         # common lifecycle
