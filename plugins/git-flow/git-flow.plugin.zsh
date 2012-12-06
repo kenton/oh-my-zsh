@@ -249,13 +249,13 @@ __git-flow-feature ()
 
 				(diff)
 					_arguments \
-						':branch:__git_branch_names'\
+						':branch:__git_flow_feature_list'\
 				;;
 
 				(rebase)
 					_arguments \
 						-i'[Do an interactive rebase]' \
-						':branch:__git_branch_names'
+						':branch:__git_flow_feature_list'
 				;;
 
 				(checkout)
@@ -266,7 +266,7 @@ __git-flow-feature ()
 				(pull)
 					_arguments \
 						':remote:__git_remotes'\
-						':branch:__git_branch_names'
+						':branch:__git_flow_feature_list'
 				;;
 
 				*)
