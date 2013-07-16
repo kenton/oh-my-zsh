@@ -56,9 +56,9 @@ compdef gcount=git
 alias gcl='git config --list'
 alias gcp='git cherry-pick'
 compdef _git gcp=git-cherry-pick
-alias glg='git log --graph --oneline'
+alias glg='git log --stat --max-count=10'
 compdef _git glg=git-log
-alias glgg='git log --graph --max-count=5'
+alias glgg='git log --graph --max-count=10'
 compdef _git glgg=git-log
 alias glo='git log --oneline'
 compdef _git glo=git-log
