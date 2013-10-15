@@ -16,3 +16,4 @@ alias feature/restrict-editing-of-subscription-fields='nocorrect feature/restric
 alias feature/persistent-promo-codes='nocorrect feature/persistent-promo-codes'
 alias feature/use-grid-for-transfer-rate-service-manager='nocorrect feature/use-grid-for-transfer-rate-service-manager'
 alias feature/rebooked-ride-reporting='nocorrect feature/rebooked-ride-reporting'
+alias gn='gn'
