@@ -21,7 +21,7 @@ unset PROMPT
 
 # Grab the current version of ruby in use (via RVM): [ruby-1.8.7]
 MY_CURRENT_RUBY="%{$fg[white]%}%{$fg[red]%}\$(rvm_prompt_info)%{$fg[white]%}%{$reset_color%}"
-MY_CURRENT_GEMSET="%{$fg[white]%}%{$fg[red]%}\$(rvm_gemset_info)%{$fg[white]%}%{$reset_color%}"
+MY_CURRENT_GEMSET="%{$fg[white]%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$fg[white]%}%{$reset_color%}"
 
 # Grab the current filepath, use shortcuts: ~/Desktop
 MY_CURRENT_PATH="%{$fg_bold[cyan]%}%~%{$reset_color%}"
